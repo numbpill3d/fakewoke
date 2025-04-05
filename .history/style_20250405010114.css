@@ -1,0 +1,316 @@
+/* --- Global & Win98 Base --- */
+body.win98-look {
+    background-color: #008080; /* Teal background */
+    font-family: "Tahoma", "Geneva", sans-serif; /* Classic Win98 font */
+    font-size: 12px;
+    margin: 0;
+    padding: 20px; /* Give some space around the window */
+    color: #000;
+    /* Optional: Add a tiled background image */
+    /* background-image: url('path/to/tile.gif'); */
+}
+
+/* --- Window Structure --- */
+.window-container {
+    background-color: #c0c0c0; /* Classic grey */
+    border: 2px outset #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    max-width: 900px; /* Limit window width */
+    margin: 0 auto; /* Center the window */
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #000080, #1084d0); /* Dark blue gradient */
+    color: #fff;
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    height: 20px; /* Standard title bar height */
+}
+
+.title-text {
+    padding-left: 3px;
+}
+
+.title-bar-controls {
+    display: flex;
+}
+
+.control-button {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
+    width: 16px;
+    height: 14px;
+    margin-left: 2px;
+    font-family: "Marlett", "Webdings", sans-serif; /* Font for symbols */
+    font-size: 10px;
+    line-height: 14px; /* Center symbol vertically */
+    text-align: center;
+    padding: 0;
+    cursor: default; /* Non-functional for now */
+}
+.control-button:active {
+    border-style: inset;
+}
+.control-button.minimize::before { content: "0"; } /* Marlett characters */
+.control-button.maximize::before { content: "1"; }
+.control-button.close::before { content: "r"; }
+
+
+.window-content {
+    padding: 15px;
+    border-top: 1px solid #808080; /* Separator line */
+    flex-grow: 1; /* Allow content to fill space */
+    background-color: #c0c0c0; /* Match window background */
+}
+
+/* --- General Content Styling --- */
+.content-section {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px inset #808080;
+    background-color: #fff; /* White background for content areas */
+}
+.content-section h2, .content-section h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+header h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* --- Upload Form (Win98 Style) --- */
+#upload-section {
+    background-color: #c0c0c0; /* Match window bg */
+    border: 1px solid #808080;
+    border-style: inset;
+}
+#upload-form label {
+    display: inline-block; /* Align labels and inputs */
+    width: 120px; /* Fixed width for labels */
+    margin-bottom: 8px;
+}
+#upload-form input[type="text"],
+#upload-form input[type="url"],
+#upload-form input[type="file"] {
+    border: 1px solid #808080;
+    border-style: inset;
+    padding: 3px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    width: calc(100% - 140px); /* Adjust width based on label */
+}
+#upload-form input[type="file"] {
+    background-color: #c0c0c0; /* File inputs often match bg */
+    border-style: outset; /* Slight difference for file input */
+    padding: 2px;
+}
+#upload-form button {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    min-width: 75px; /* Standard button width */
+    margin-top: 5px;
+}
+#upload-form button:active {
+    border-style: inset;
+}
+#upload-form small {
+    display: block;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* --- Main Content: Search, Toggle, Views --- */
+main {
+    border: none; /* Remove extra border */
+    padding: 0; /* Remove padding, handled by window-content */
+}
+
+.view-controls {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    border: 1px inset #808080;
+}
+#search-input {
+    flex-grow: 1;
+    border: 1px solid #808080;
+    border-style: inset;
+    padding: 4px;
+    background-color: #fff;
+}
+#toggle-view-button {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+#toggle-view-button:active {
+    border-style: inset;
+}
+
+/* View Visibility */
+.view-hidden {
+    display: none;
+}
+.view-active {
+    display: block; /* Or grid for collage */
+}
+
+/* --- Collage View --- */
+#collage-container {
+    display: grid; /* Keep grid for active collage view */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller items */
+    gap: 4px;
+    padding: 10px;
+    border: 1px inset #808080;
+    background-color: #fff; /* White background */
+    min-height: 200px; /* Ensure it has some height */
+}
+.collage-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #a0a0a0; /* Simple border */
+}
+.collage-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: none; /* Remove hover effect for retro feel */
+}
+.collage-item:hover img {
+    transform: none; /* No zoom */
+}
+.collage-item .tooltip {
+    /* Keep tooltip style, it's useful */
+    visibility: hidden;
+    width: max-content;
+    background-color: InfoBackground; /* System tooltip color */
+    color: InfoText; /* System tooltip text color */
+    border: 1px solid #000;
+    text-align: center;
+    border-radius: 0; /* No rounded corners */
+    padding: 2px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.1s linear; /* Faster transition */
+    white-space: nowrap;
+    font-size: 11px;
+}
+.collage-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- List View --- */
+#list-container {
+    padding: 10px;
+    border: 1px inset #808080;
+    background-color: #fff; /* White background */
+    max-height: 400px; /* Limit height and allow scroll */
+    overflow-y: auto;
+}
+#list-container h2 {
+     margin-top: 0;
+     font-size: 1.1em;
+     border-bottom: 1px solid #808080;
+     padding-bottom: 5px;
+     margin-bottom: 10px;
+}
+#site-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#site-list li {
+    margin-bottom: 8px;
+    padding: 5px;
+    border-bottom: 1px dotted #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#site-list li:last-child {
+    border-bottom: none;
+}
+#site-list img.list-preview {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 1px solid #a0a0a0;
+    flex-shrink: 0; /* Prevent image shrinking */
+}
+#site-list .list-info {
+    flex-grow: 1;
+}
+#site-list .list-info a {
+    color: #0000FF; /* Classic blue link */
+    text-decoration: underline;
+    font-weight: bold;
+}
+#site-list .list-info span {
+    display: block;
+    font-size: 0.9em;
+    color: #333;
+}
+
+
+/* --- Footer & Widget Instructions --- */
+footer {
+    text-align: left; /* Align left */
+    padding: 10px;
+    border-top: 1px solid #808080;
+    margin-top: 0; /* Remove extra margin */
+    background-color: #c0c0c0; /* Match window bg */
+    color: #000;
+}
+#widget-instructions {
+    background-color: #c0c0c0; /* Match window bg */
+    border: 1px solid #808080;
+    border-style: inset;
+    padding: 10px;
+}
+#widget-instructions h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+}
+#widget-instructions pre {
+    background-color: #fff;
+    border: 1px inset #808080;
+    padding: 8px;
+    overflow-x: auto; /* Allow scrolling for long code */
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    margin: 5px 0;
+}
+#widget-instructions code {
+    font-family: inherit;
+}
+#widget-instructions a {
+    color: #0000FF;
+}

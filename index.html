@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fakewoke Community Collage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="win98-look">
+    <div class="window-container">
+        <div class="title-bar">
+            <span class="title-text">fakewoke Community Collage</span>
+            <div class="title-bar-controls">
+                <button class="control-button minimize" aria-label="Minimize"></button>
+                <button class="control-button maximize" aria-label="Maximize"></button>
+                <button class="control-button close" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-content">
+    <header>
+        <h1>fakewoke Community Collage</h1>
+        <p>A massive collage of user-submitted sites. Hover to see the site name, click to visit!</p>
+        <section id="upload-section" class="content-section">
+            <h2>Add Your Site!</h2>
+            <form id="upload-form">
+                <label for="siteName">Site Name:</label>
+                <input type="text" id="siteName" name="siteName" required><br><br>
+
+                <label for="siteUrl">Site URL:</label>
+                <input type="url" id="siteUrl" name="siteUrl" placeholder="https://example.com" required><br><br>
+
+                <label for="imageFile">Image (preview/artwork):</label>
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required><br><br>
+                <p><small>Note: For now, uploads are simulated. Image data isn't actually saved.</small></p>
+
+                <button type="submit">Add to Collage</button>
+            </form>
+        </section>
+    </header>
+
+    <main class="content-section">
+        <div class="view-controls">
+             <input type="search" id="search-input" placeholder="Search sites...">
+             <button id="toggle-view-button">Switch to List View</button>
+        </div>
+
+        <div id="collage-container" class="view-active">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+        <div id="list-container" class="view-hidden">
+             <h2>Site Directory</h2>
+             <ul id="site-list">
+                 <!-- List items will be loaded here -->
+             </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>Explore the community!</p>
+        <section id="widget-instructions" class="content-section">
+            <h3>Embed Our Widget!</h3>
+            <p>Share the community on your site! Copy and paste this code:</p>
+            <pre><code>&lt;iframe src="widget.html" width="200" height="150" style="border:1px solid #ccc; border-radius: 5px;" title="fakewoke Community Widget"&gt;&lt;/iframe&gt;</code></pre>
+            <p><small>Adjust width and height as needed. Ensure 'widget.html' is accessible from where you embed it, or use the full URL if hosted.</small></p>
+             <p><a href="widget.html" target="_blank">Preview the widget</a></p>
+        </section>
+    </footer>
+
+    <script src="script.js"></script>
+        </div> <!-- end window-content -->
+    </div> <!-- end window-container -->
+</body>
+</html>

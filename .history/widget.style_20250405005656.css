@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex; /* Helps center if needed */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* For standalone viewing */
+    background-color: transparent; /* Allow embedding on different backgrounds */
+}
+
+#widget-container {
+    width: 200px; /* Example width, adjust as needed */
+    height: 150px; /* Example height, adjust as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative; /* For tooltip and promo text positioning */
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+#widget-link {
+    display: block;
+    width: 100%;
+    height: 100%; /* Take full space */
+    position: relative;
+    flex-grow: 1; /* Allow link/image to take available space */
+    text-decoration: none;
+    color: inherit;
+}
+
+#widget-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+    border: none; /* Remove border from image inside link */
+}
+
+#widget-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+#widget-link:hover #widget-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.widget-promo {
+    font-size: 0.7em;
+    text-align: center;
+    padding: 3px 0;
+    background-color: #eee;
+    color: #555;
+    margin: 0;
+    position: absolute; /* Position at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5; /* Below tooltip */
+}
+
+.widget-promo a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.widget-promo a:hover {
+    text-decoration: underline;
+}

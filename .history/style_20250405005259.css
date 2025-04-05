@@ -1,0 +1,83 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+#collage-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid */
+    gap: 5px; /* Spacing between images */
+    max-width: 1200px;
+    margin: 20px auto; /* Center the container */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.collage-item {
+    position: relative; /* For absolute positioning of the tooltip */
+    overflow: hidden; /* Ensure image fits container */
+}
+
+.collage-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area without distortion */
+    transition: transform 0.3s ease;
+}
+
+.collage-item:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.collage-item .tooltip {
+    visibility: hidden;
+    width: max-content;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%; /* Position above the item */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.collage-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+}

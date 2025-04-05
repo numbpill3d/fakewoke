@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fakewoke Community Collage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>fakewoke Community Collage</h1>
+        <p>A massive collage of user-submitted sites. Hover to see the site name, click to visit!</p>
+        <section id="upload-section">
+            <h2>Add Your Site!</h2>
+            <form id="upload-form">
+                <label for="siteName">Site Name:</label>
+                <input type="text" id="siteName" name="siteName" required><br><br>
+
+                <label for="siteUrl">Site URL:</label>
+                <input type="url" id="siteUrl" name="siteUrl" placeholder="https://example.com" required><br><br>
+
+                <label for="imageFile">Image (preview/artwork):</label>
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required><br><br>
+                <p><small>Note: For now, uploads are simulated. Image data isn't actually saved.</small></p>
+
+                <button type="submit">Add to Collage</button>
+            </form>
+        </section>
+    </header>
+
+    <main>
+        <div id="collage-container">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Explore the community!</p>
+        <!-- Link to widget instructions later -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
